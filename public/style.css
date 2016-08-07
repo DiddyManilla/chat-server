@@ -1,0 +1,42 @@
+#users-container {
+    text-align: center;
+    height: 90vh;
+    width: 100px;
+    background-color: #7777aa;
+    overflow: auto;
+    float: left;
+}
+#divider-line {
+    position: relative;
+    height: 3px;
+    width: 90%;
+    left: 5%;
+    transform: translateY(-10px);
+    background-color: black;
+}
+#messages {
+    height: 90vh;
+    position: relative;
+    left: 100px;
+}
+#chatlog-div {
+    position: relative;
+    height: 95%;
+}
+#chatlog-wrapper {
+    position: absolute;
+    height: 16.25px;
+    bottom: 0;
+}
+#chatlog {
+    list-style: none;
+}
+#send-div {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+}
+pre {
+    font-size: 1.25em;
+    margin: 16.25px 0 16.25px 0;
+}

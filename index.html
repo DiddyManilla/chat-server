@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Talko</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="jquery.js"></script>
+        <script src="socket.io.js"></script>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div id="main-container">
+            <div id="users-container">
+                <h3>Current users</h3>
+                <div id="divider-line"></div>
+                <div id="users">
+                    
+                </div>
+            </div>
+            <div id="messages">
+                <div id="chatlog-div">
+                        <ul id="chatlog-names">
+                        </ul>
+                        <ul id="chatlog-messages">
+                        </ul>
+                </div>
+                <div id="send-div">
+                    <input type="text" id="message">
+                    <input type="button" value="send" id="send">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

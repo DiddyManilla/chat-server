@@ -1,0 +1,63 @@
+/*#main-container {
+    position: relative;
+}*/
+#users-container {
+    text-align: center;
+    height: 90vh;
+    width: 100px;
+    background-color: #7777aa;
+    overflow: auto;
+    float: left;
+}
+#divider-line {
+    position: relative;
+    height: 3px;
+    width: 90%;
+    left: 5%;
+    transform: translateY(-10px);
+    background-color: black;
+}
+#messages {
+    top: 0;
+    left: 0;
+    margin: 0;
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+}
+#chatlog-div {
+    position: relative;
+    height: 90%;
+    overflow-y: auto;
+}
+#chatlog-names {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-150%);
+    bottom: 0;
+    list-style: none;
+    margin-bottom: 0;
+    text-align: right;
+}
+#chatlog-messages {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    list-style: none;
+    margin-bottom: 0;
+}
+#send-div-wrapper {
+    position: relative;
+}
+#send-div {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#message {
+    border: 1px solid gray;
+}
+li {
+    font-size: 1.25em;
+}

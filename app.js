@@ -9,8 +9,9 @@ app.use(router);
 
 var users = [];
 io.on('connection', function(client) {
+    var username;
     client.on('join', function(data) {
-        client.username = data.username;
+        username = data.username;
         console.log(data.username + " joined the chat.");
         users.push(data.username);
         client.broadcast.emit('join', {'username': data.username});
@@ -25,9 +26,9 @@ io.on('connection', function(client) {
         console.log(data.username + ': ' + data.message);
     });
     client.on('disconnect', function(data) {
-        console.log(client.username + " left the chat.");
-        users.splice(users.indexOf(client.username), 1);
-        client.broadcast.emit('leave', {username: client.username});
+        console.log(username + " left the chat.");
+        users.splice(users.indexOf(username), 1);
+        client.broadcast.emit('leave', {username: username});
     });
 });
 

@@ -15,28 +15,46 @@
     background-color: black;
 }
 #messages {
+    top: 0;
+    left: 0;
+    margin: 0;
     height: 90vh;
     position: relative;
-    left: 100px;
+    overflow: hidden;
 }
 #chatlog-div {
     position: relative;
-    height: 95%;
+    height: 90%;
+    overflow-y: auto;
 }
-#chatlog-wrapper {
+#chatlog-names {
     position: absolute;
-    height: 16.25px;
+    left: 50%;
+    transform: translateX(-150%);
     bottom: 0;
-}
-#chatlog {
     list-style: none;
+    margin-bottom: 0;
+    text-align: right;
+}
+#chatlog-messages {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    list-style: none;
+    margin-bottom: 0;
+}
+#send-div-wrapper {
+    position: relative;
 }
 #send-div {
     position: absolute;
     bottom: 0;
-    left: 10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
-pre {
+#message {
+    border: 1px solid gray;
+}
+li {
     font-size: 1.25em;
-    margin: 16.25px 0 16.25px 0;
 }

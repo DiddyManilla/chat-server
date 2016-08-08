@@ -1,25 +1,29 @@
 /*global $ io*/
-$(document).ready(function() {
-    
+$(document).ready(function(event) {
+console.log(event);
+
 var socket = io.connect('/');
 
 var username = $.trim(prompt('Please enter your username.')).replace('<', '&lt;').replace('>', '&gt;');
 
 while ($.trim(username).length == 0) {
-    username = $.trim(prompt('Username must have characters other than spaces.')).replace('<', '&lt;').replace('>', '&gt;');
+    username = $.trim(prompt('Username must have characters other than spaces.'))
+                                                            .replace('<', '&lt;').replace('>', '&gt;');
 }
 socket.emit('join', {'username': username});
 
 socket.on('message', function(data) {
-    $("#chatlog-wrapper").css('height', parseFloat($("#chatlog-wrapper").css('height')) + 35.250 + 'px');
-    $("#chatlog").append('<li><pre>' + data.username + ':     ' + data.message + '</pre></li>');
-    
+    //$("#chatlog-wrapper").css('height', parseFloat($("#chatlog-wrapper").css('height')) + 35.250 + 'px');
+    $("#chatlog-names").append('<li>' + data.username + '</li>');
+    $("#chatlog-messages").append('<li>'  + data.message + '</li>');
+    $("#chatlog").css('bottom', '0px');
 });
 
 socket.on('join', function(data) {
     $("#users").append("<p>" + data.username + "</p>");
-    $("#chatlog-wrapper").css('height', parseFloat($("#chatlog-wrapper").css('height')) + 35.250 + 'px');
-    $("#chatlog").append('<li><pre>     ' + data.username + ' has joined.</pre></li>');
+    $("#chatlog-names").append('<li>' + data.username +'</li>');
+    $("#chatlog-messages").append('<li>joined</li>');
+    $("#chatlog").css('bottom', '0px');
 });
 
 socket.on('leave', function(data) {
@@ -31,8 +35,9 @@ socket.on('leave', function(data) {
             break;
         }
     }
-    $("#chatlog-wrapper").css('height', parseFloat($("#chatlog-wrapper").css('height')) + 35.250 + 'px');
-    $("#chatlog").append('<li><pre>     ' + data.username + ' has left.</pre></li>');
+    $("#chatlog-names").append('<li>' + data.username + '</li>');
+    $("#chatlog-messages").append('<li>left</li>');
+    $("#chatlog").css('bottom', '0px');
 });
 
 $("#send").on('click', function(event) {
